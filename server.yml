@@ -1,0 +1,34 @@
+server:
+  type: default
+  applicationConnectors:
+    - type: http
+      port: 10007
+  adminConnectors:
+    - type: http
+      port: 10008
+  requestLog:
+    timeZone: IST
+    appenders:
+      - type: file
+        currentLogFilename: ./logs/access.log
+        threshold: INFO
+        archive: true
+        archivedLogFilenamePattern: ./logs/access-%d{yyyy-MM-dd-HH}.log.gz
+        archivedFileCount: 50
+        timeZone: IST
+
+logging:
+  level: INFO
+  loggers:
+    "com.flipkart.mock.resources": ALL
+  appenders:
+    - type: file
+      currentLogFilename: ./logs/mock.log
+      threshold: ALL
+      archive: true
+      archivedLogFilenamePattern: ./logs/mock-%d{yyyy-MM-dd-HH}.log.gz
+      archivedFileCount: 50
+      timeZone: IST
+      logFormat: "%highlight(%-5level) [%date] [%thread] [%cyan(%logger{0})]: %message%n"
+
+mediaRoot: "/Users/akash.v/mus/"
