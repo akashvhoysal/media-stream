@@ -1,4 +1,5 @@
 .idea/
 logs/
+ci/
 mediaServer.iml
 target/
